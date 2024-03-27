@@ -1,0 +1,93 @@
+name: "CI - Build"
+
+on:
+    pull_request:
+        branches: 
+            - develop
+            - main
+
+jobs:
+    build_ios:
+        name: "Build iOS app"
+        runs-on: macos-latest
+
+        steps:
+            # Checkout repository
+            -   name: Checkout Repository
+                uses: actions/checkout@v4
+        
+            # Setup flutter
+            -   name: Setup Flutter
+                uses: subosito/flutter-action@v2
+                with:
+                    flutter-version: '3.19.4'
+                    channel: 'stable'
+
+            # Install dependencies
+            -   name: Install dependencies
+                run: flutter pub get
+
+            # build IPA
+            -   name: Build IPA
+                run:
+                    flutter build ipa --no-codesign
+            -   name: Compress Archives and IPA
+                run: |
+                    cd build
+                    tar -czf ios_build.tar.gz ios
+
+            # Articfact
+            -   name: Upload Artifacts
+                uses: actions/upload-artifact@v3
+                with:
+                    name: Releases
+                    path: |
+                        build/ios_build.tar.gz
+
+
+    build_android:
+        name: "Build Android"
+        runs-on: macos-latest
+
+        steps:
+            # Checkout repository
+            -   name: Checkout Repository
+                uses: actions/checkout@v4
+        
+            # Setup java
+            -   name: Setup Java
+                uses: actions/setup-java@4
+                with:
+                    distribution: 'oracle'
+                    java-version: '21'
+
+            # Setup flutter
+            -   name: Setup Flutter
+                uses: subosito/flutter-action@v2
+                with:
+                    flutter-version: '3.19.4'
+                    channel: 'stable'
+
+            # Install dependencies
+            -   name: Install dependencies
+                run: flutter pub get
+
+            # build APK
+            -   name: Build APK
+                run: flutter build apk --release
+
+            # build AAB
+            -   name: Build App Bundle
+                run: flutter build appbundle
+                
+            # CD 
+            -   name: Upload Artifacts
+                uses: actions/upload-artifact@v3
+                with:
+                    name: Releases
+                    path: |
+                        build/app/outputs/flutter-apk/app-release.apk
+                        build/app/outputs/bundle/release/app-release.aab
+
+                    
+    
