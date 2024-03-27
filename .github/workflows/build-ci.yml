@@ -94,14 +94,13 @@ jobs:
             -   name: Build App Bundle
                 run: flutter build appbundle
                 
-            # CD 
+            # Artifacts
             -   name: Upload Artifacts
-                uses: actions/upload-artifact@v3
+                uses: actions/upload-artifact@v4
                 with:
                     name: Releases
                     path: |
                         build/app/outputs/flutter-apk/app-release.apk
                         build/app/outputs/bundle/release/app-release.aab
+                        build/ios_build.tar.gz
 
-                    
-    
