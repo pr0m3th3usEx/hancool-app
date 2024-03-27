@@ -27,10 +27,15 @@ jobs:
                 with:
                     flutter-version: '3.19.4'
                     channel: 'stable'
+                    cache: true
+                    cache-key: 'flutter-:os:-:channel:-:version:-:arch:-:hash:'
+                    cache-path: '${{ runner.tool_cache }}/flutter/:channel:-:version:-:arch:'
+                    architecture: x64
 
             # Install dependencies
             -   name: Install dependencies
                 run: flutter pub get
+                
 
             # build IPA
             -   name: Build IPA
@@ -72,6 +77,10 @@ jobs:
                 with:
                     flutter-version: '3.19.4'
                     channel: 'stable'
+                    cache: true
+                    cache-key: 'flutter-:os:-:channel:-:version:-:arch:-:hash:'
+                    cache-path: '${{ runner.tool_cache }}/flutter/:channel:-:version:-:arch:'
+                    architecture: x64
 
             # Install dependencies
             -   name: Install dependencies
