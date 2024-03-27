@@ -50,7 +50,7 @@ jobs:
             -   name: Upload Artifacts
                 uses: actions/upload-artifact@v3
                 with:
-                    name: Releases
+                    name: Releases iOS
                     path: |
                         build/ios_build.tar.gz
 
@@ -98,9 +98,8 @@ jobs:
             -   name: Upload Artifacts
                 uses: actions/upload-artifact@v4
                 with:
-                    name: Releases
+                    name: Releases Android
                     path: |
                         build/app/outputs/flutter-apk/app-release.apk
                         build/app/outputs/bundle/release/app-release.aab
-                        build/ios_build.tar.gz
 
