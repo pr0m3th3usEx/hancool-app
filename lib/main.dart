@@ -22,12 +22,9 @@ class MyApp extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Test',
+                  'NUMBER OF WORDS',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontSize: 72,
-                  ),
+                  style: Theme.of(context).textTheme.bodyLarge
                 ),
               ],
             ),
