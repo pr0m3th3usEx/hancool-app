@@ -7,6 +7,7 @@ class ThemeColor {
   static const peachYellow = Color.fromRGBO(253, 230, 169, 1);
   static const lotion = Color.fromRGBO(250, 250, 250, 1);
   static const antiFlashWhite = Color.fromRGBO(243, 242, 242, 1);
+  static const brightGray = Color.fromRGBO(233, 233, 233, 1);
   static const darkGray = Color.fromRGBO(169, 169, 169, 1);
   static const lemonMeringue = Color.fromRGBO(241, 228, 195, 1);
   static const camel = Color.fromRGBO(198, 169, 105, 1);
@@ -42,7 +43,7 @@ class ThemeColor {
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
       colors: <Color>[spanishPink, mistyRose, peachYellow],
-      stops: [0.0, 0.70, 1.0]);
+      stops: [0.06, 0.12, 0.18]);
 }
 
 class CustomColorScheme extends ColorScheme {
