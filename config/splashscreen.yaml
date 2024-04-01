@@ -1,0 +1,15 @@
+flutter_native_splash:
+  background_image: assets/images/logo/main_gradient.png
+  background_image_dark: assets/images/logo/main_gradient.png
+  image: assets/images/logo/logo_splash.png
+  image_dark: assets/images/logo/logo_splash.png
+
+android_12:
+  background_image: assets/images/logo/main_gradient.png
+  background_image_dark: assets/images/logo/main_gradient.png
+  image: assets/images/logo/logo_splash.png
+  image_dark: assets/images/logo/logo_splash.png
+
+web: false
+
+# linear-gradient(180deg, rgb(240.00000089406967, 183.00000429153442, 185.00000417232513) 0%, rgb(253.0000001192093, 226.0000017285347, 226.0000017285347) 28.597071766853333%, rgb(253.0000001192093, 230.00000149011612, 169.00000512599945) 100%)
