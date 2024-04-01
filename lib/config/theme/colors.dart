@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ThemeColor {
+  static const white = Color.fromRGBO(255, 255, 255, 1);
   static const spanishPink = Color.fromRGBO(240, 183, 185, 1);
   static const mistyRose = Color.fromRGBO(253, 226, 226, 1);
   static const peachYellow = Color.fromRGBO(253, 230, 169, 1);
@@ -59,10 +60,6 @@ class CustomColorScheme extends ColorScheme {
           primary: ThemeColor.spanishPink,
           // onPrimary: The color used for text and icons that appear on top of the primary color.
           onPrimary: ThemeColor.lotion,
-          // primaryContainer: This color is applied to containers (e.g., cards) that use the primary color as their background.
-          primaryContainer: ThemeColor.mistyRose,
-          // onPrimaryContainer: The color used for text and icons that appear on top of containers with the primary color background.
-          onPrimaryContainer: ThemeColor.lotion,
           // secondary: The secondary color used to accent elements in your application, providing visual interest and distinction from primary components.
           secondary: ThemeColor.camel,
           // onSecondary: The color used for text and icons that appear on top of the secondary color.
