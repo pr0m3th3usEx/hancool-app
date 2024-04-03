@@ -1,3 +1,4 @@
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:hancool_app/config/theme/colors.dart';
 import 'package:hancool_app/config/theme/icons.dart';
@@ -23,58 +24,61 @@ class MyApp extends StatelessWidget {
         home: Builder(builder: (context) {
           return Scaffold(
             extendBodyBehindAppBar: true,
-            appBar: CustomAppBar(
-              title: 'hancool',
-            ),
-            body: Container(
-              padding: const EdgeInsets.only(top: 132),
-              decoration: const BoxDecoration(
-                gradient: ThemeColor.secondaryGradient,
-              ),
-              width: double.maxFinite,
-              child: Container(
+            appBar: const CustomAppBar(title: 'hancool');,
+            body: LayoutBuilder(builder: (context, constraints) {
+              var safePadding = MediaQuery.of(context).padding.top;
+              return Container(
+                padding: EdgeInsets.only(top: safePadding),
+                decoration: const BoxDecoration(
+                  gradient: ThemeColor.secondaryGradient,
+                ),
                 width: double.maxFinite,
-                height: double.maxFinite,
-                decoration: BoxDecoration(
-                  color: ThemeColor.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text('NUMBER OF WORDS',
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.bodyLarge),
-                    Container(
-                      width: 200.0,
-                      height: 200.0,
-                      decoration: const BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                child: Container(
+                  width: double.maxFinite,
+                  height: double.maxFinite,
+                  decoration: BoxDecoration(
+                    color: ThemeColor.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(24),
+                        topRight: Radius.circular(24)),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text('NUMBER OF WORDS',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyLarge),
+                      Container(
+                        width: 200.0,
+                        height: 200.0,
+                        decoration: const BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                        ),
                       ),
-                    ),
-                    ElevatedButton(
-                      style: squareButton(ThemeColor.peachYellow),
-                      onPressed: () => {},
-                      child: Icon(
-                        MyIcons.repeat,
-                        size: 32,
+                      ElevatedButton(
+                        style: squareButton(ThemeColor.peachYellow),
+                        onPressed: () => {},
+                        child: Icon(
+                          MyIcons.repeat,
+                          size: 32,
+                        ),
                       ),
-                    ),
-                    TextButton(
-                        onPressed: () {},
-                        child: const Text('CREATE'),
-                        style: textButtonPrimary),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          MyIcons.home,
-                          size: 24,
-                        )),
-                  ],
+                      TextButton(
+                          onPressed: () {},
+                          child: const Text('CREATE'),
+                          style: textButtonPrimary),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            MyIcons.home,
+                            size: 24,
+                          )),
+                    ],
+                  ),
                 ),
-              ),
-            ),
+              );
+            }),
           );
         }));
   }
