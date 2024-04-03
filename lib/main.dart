@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         home: Builder(builder: (context) {
           return Scaffold(
             extendBodyBehindAppBar: true,
-            appBar: const CustomAppBar(title: 'hancool');,
+            appBar: const CustomAppBar(title: 'hancool'),
             body: LayoutBuilder(builder: (context, constraints) {
               var safePadding = MediaQuery.of(context).padding.top;
               return Container(
