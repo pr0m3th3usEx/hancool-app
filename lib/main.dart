@@ -1,10 +1,11 @@
-import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:hancool_app/config/theme/colors.dart';
 import 'package:hancool_app/config/theme/icons.dart';
 import 'package:hancool_app/config/theme/styles/button.dart';
+import 'package:hancool_app/config/theme/text.dart';
 import 'package:hancool_app/config/theme/theme.dart';
-import 'package:hancool_app/widgets/navigation/CustomAppBar.dart';
+import 'package:hancool_app/widgets/navigation/appbar.dart';
+import 'package:hancool_app/widgets/navigation/bottomBar/index.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +25,40 @@ class MyApp extends StatelessWidget {
         home: Builder(builder: (context) {
           return Scaffold(
             extendBodyBehindAppBar: true,
-            appBar: const CustomAppBar(title: 'hancool'),
+            appBar: CustomAppBar(
+              leading: (
+                Text(
+                  'hancool',
+                  style: const CustomTextTheme().headlineSmall?.copyWith(
+                      color: ThemeColor.white, fontFamily: 'CookieRun'),
+                )
+              ),
+              trailing: Row(
+                children: <Widget>[
+                  IconButton(
+                    onPressed: () {
+                      // print('test');
+                    },
+                    iconSize: 32,
+                    padding: const EdgeInsets.all(0),
+                    icon: const Icon(
+                      MyIcons.history,
+                      color: Colors.white,
+                  )),
+                  IconButton(
+                    onPressed: () {
+                      // print('test');
+                    },
+                    iconSize: 32,
+                    padding: const EdgeInsets.all(0),
+                    icon: const Icon(
+                      MyIcons.setting,
+                      color: Colors.white,
+                  )),
+
+                ],
+              ),
+            ),
             body: LayoutBuilder(builder: (context, constraints) {
               var safePadding = MediaQuery.of(context).padding.top;
               return Container(
@@ -36,7 +70,7 @@ class MyApp extends StatelessWidget {
                 child: Container(
                   width: double.maxFinite,
                   height: double.maxFinite,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: ThemeColor.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(24),
@@ -58,8 +92,8 @@ class MyApp extends StatelessWidget {
                       ),
                       ElevatedButton(
                         style: squareButton(ThemeColor.peachYellow),
-                        onPressed: () => {},
-                        child: Icon(
+                        onPressed: () {},
+                        child: const Icon(
                           MyIcons.repeat,
                           size: 32,
                         ),
@@ -79,6 +113,7 @@ class MyApp extends StatelessWidget {
                 ),
               );
             }),
+            // bottomNavigationBar: const BottomBar(),
           );
         }));
   }
