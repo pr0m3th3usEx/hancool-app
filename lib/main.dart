@@ -5,7 +5,7 @@ import 'package:hancool_app/config/theme/styles/button.dart';
 import 'package:hancool_app/config/theme/text.dart';
 import 'package:hancool_app/config/theme/theme.dart';
 import 'package:hancool_app/widgets/navigation/appbar.dart';
-import 'package:hancool_app/widgets/navigation/bottomBar/index.dart';
+import 'package:hancool_app/widgets/navigation/bottombar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,36 +26,33 @@ class MyApp extends StatelessWidget {
           return Scaffold(
             extendBodyBehindAppBar: true,
             appBar: CustomAppBar(
-              leading: (
-                Text(
-                  'hancool',
-                  style: const CustomTextTheme().headlineSmall?.copyWith(
-                      color: ThemeColor.white, fontFamily: 'CookieRun'),
-                )
-              ),
+              leading: (Text(
+                'hancool',
+                style: const CustomTextTheme().headlineSmall?.copyWith(
+                    color: ThemeColor.white, fontFamily: 'CookieRun'),
+              )),
               trailing: Row(
                 children: <Widget>[
                   IconButton(
-                    onPressed: () {
-                      // print('test');
-                    },
-                    iconSize: 32,
-                    padding: const EdgeInsets.all(0),
-                    icon: const Icon(
-                      MyIcons.history,
-                      color: Colors.white,
-                  )),
+                      onPressed: () {
+                        // print('test');
+                      },
+                      iconSize: 32,
+                      padding: const EdgeInsets.all(0),
+                      icon: const Icon(
+                        MyIcons.history,
+                        color: Colors.white,
+                      )),
                   IconButton(
-                    onPressed: () {
-                      // print('test');
-                    },
-                    iconSize: 32,
-                    padding: const EdgeInsets.all(0),
-                    icon: const Icon(
-                      MyIcons.setting,
-                      color: Colors.white,
-                  )),
-
+                      onPressed: () {
+                        // print('test');
+                      },
+                      iconSize: 32,
+                      padding: const EdgeInsets.all(0),
+                      icon: const Icon(
+                        MyIcons.setting,
+                        color: Colors.white,
+                      )),
                 ],
               ),
             ),
@@ -100,8 +97,8 @@ class MyApp extends StatelessWidget {
                       ),
                       TextButton(
                           onPressed: () {},
-                          child: const Text('CREATE'),
-                          style: textButtonPrimary),
+                          style: textButtonPrimary,
+                          child: const Text('CREATE')),
                       IconButton(
                           onPressed: () {},
                           icon: const Icon(
@@ -113,7 +110,10 @@ class MyApp extends StatelessWidget {
                 ),
               );
             }),
-            // bottomNavigationBar: const BottomBar(),
+            bottomNavigationBar: BottomBar(navItems: [
+              NavigationItem(MyIcons.home, 'Home'),
+              NavigationItem(MyIcons.cube, 'Learn'),
+            ]),
           );
         }));
   }
