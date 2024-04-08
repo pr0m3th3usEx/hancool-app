@@ -4,7 +4,8 @@ import 'package:hancool_app/config/theme/icons.dart';
 import 'package:hancool_app/config/theme/styles/button.dart';
 import 'package:hancool_app/config/theme/text.dart';
 import 'package:hancool_app/config/theme/theme.dart';
-import 'package:hancool_app/widgets/navigation/appbar.dart';
+import 'package:hancool_app/screens/HistoryScreen.dart';
+import 'package:hancool_app/widgets/navigation/home_appbar.dart';
 import 'package:hancool_app/widgets/navigation/bottombar.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         home: Builder(builder: (context) {
           return Scaffold(
             extendBodyBehindAppBar: true,
-            appBar: CustomAppBar(
+            appBar: HomeAppBar(
               leading: (Text(
                 'hancool',
                 style: const CustomTextTheme().headlineSmall?.copyWith(
@@ -35,7 +36,9 @@ class MyApp extends StatelessWidget {
                 children: <Widget>[
                   IconButton(
                       onPressed: () {
-                        // print('test');
+                        Navigator.push(context, 
+                          MaterialPageRoute(builder: (context) => const HistoryScreen())
+                        );
                       },
                       iconSize: 32,
                       padding: const EdgeInsets.all(0),

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:hancool_app/config/theme/colors.dart';
 import 'package:hancool_app/config/theme/text.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Widget? leading;
   final Widget? trailing;
   final Widget? titleWidget;
 
-  const CustomAppBar({
+  const HomeAppBar({
     super.key,
     this.title = '',
     this.leading,
@@ -58,6 +58,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  // ignore: deprecated_member_use
   Size get preferredSize => const Size(double.maxFinite, 80);
 }

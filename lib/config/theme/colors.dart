@@ -43,7 +43,7 @@ class ThemeColor {
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
       colors: <Color>[spanishPink, mistyRose, peachYellow],
-      stops: [0.06, 0.12, 0.18]);
+      stops: [0.06, 0.14, 0.24]);
 }
 
 class CustomColorScheme extends ColorScheme {
