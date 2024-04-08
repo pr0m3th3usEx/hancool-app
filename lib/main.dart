@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:hancool_app/config/theme/theme.dart';
 import 'package:hancool_app/screens/home.dart';
 
@@ -12,13 +13,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
+    return GetMaterialApp(
+        title: 'Hancool',
         theme: CustomTheme.lightTheme,
         darkTheme: CustomTheme.darkTheme,
         // themeMode: ThemeMode.light,
         home: Builder(builder: (context) {
-          return const HomeScreen();
+          return HomeScreen();
         }));
   }
 }

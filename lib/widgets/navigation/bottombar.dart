@@ -3,8 +3,10 @@ import 'package:hancool_app/config/theme/colors.dart';
 
 class BottomBar extends StatelessWidget {
   final List<NavigationItem> navItems;
+  final int? selectedIndex;
+  final void Function(int)? onDestinationSelected;
 
-  const BottomBar({super.key, this.navItems = const []});
+  const BottomBar({super.key, this.navItems = const [], this.selectedIndex, this.onDestinationSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -39,19 +41,21 @@ class BottomBar extends StatelessWidget {
                       Tooltip(
                         message: navItems[index].label,
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () => {
+                            if (onDestinationSelected != null) onDestinationSelected!(index)
+                          },
                           padding: const EdgeInsets.all(0),
                           icon: Icon(
                             navItems[index].icon,
                             size: 24,
-                            color: index == 0
+                            color: index == selectedIndex
                                 ? ThemeColor.spanishBistre
                                 : ThemeColor.raisinBlack,
                           )
                         ),
                       ),
                       AnimatedBar(
-                        isActive: index == 0,
+                        isActive: index == selectedIndex,
                       ),
                     ],
                   )
