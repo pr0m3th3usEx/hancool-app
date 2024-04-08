@@ -41,7 +41,7 @@ class RegularAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                   Center(
                     child: Text(
-                      'title',
+                      title,
                       style: const CustomTextTheme()
                           .headlineSmall
                           ?.copyWith(
